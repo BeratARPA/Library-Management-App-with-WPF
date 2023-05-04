@@ -1,0 +1,176 @@
+﻿<Window x:Class="IsLibrary.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IsLibrary.Views"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Title="ShellView" Height="600" Width="800" MinHeight="600" MinWidth="800">
+
+    <Border CornerRadius="5" BorderThickness="7" BorderBrush="{DynamicResource Banner}">
+        <Grid>
+
+            <!--#region Grid-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" x:Name="grdColumn0"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!--#endregion-->
+
+            <!--#region MainGrid -->
+            <Grid Grid.Column="1" Grid.Row="0">
+
+                <!--#region Grid-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <!--#endregion-->
+
+                <!--#region BorderHeader -->
+                <Border Grid.Column="0" Grid.Row="0" Background="{DynamicResource Background}" MouseDown="WindowBorder">
+                    <Grid>
+
+                        <!--#region Grid-->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <!--#endregion-->
+
+                        <DockPanel HorizontalAlignment="Left">
+                            <ToggleButton Name="tglBtn_collapsible" Style="{StaticResource CollapsibleButton}" Click="tglBtn_collapsible_Click"/>
+                        </DockPanel>
+
+                        <DockPanel HorizontalAlignment="Right" Grid.Column="2">
+                            <ComboBox Style="{StaticResource ThemesComboBox}">
+                                <ComboBoxItem x:Name="cmbItem_turkishLanguage" Selected="cmbItem_turkishLanguage_Selected">Turkish</ComboBoxItem>
+                                <ComboBoxItem x:Name="cmbItem_englishLanguage" Selected="cmbItem_englishLanguage_Selected">English</ComboBoxItem>
+                            </ComboBox>
+                            <ComboBox Style="{StaticResource ThemesComboBox}">
+                                <ComboBoxItem x:Name="cmbItem_defaultTheme" Selected="cmbItem_defaultTheme_Selected">Default</ComboBoxItem>
+                                <ComboBoxItem x:Name="cmbItem_darkTheme" Selected="cmbItem_darkTheme_Selected">Dark</ComboBoxItem>
+                                <ComboBoxItem x:Name="cmbItem_lightTheme" Selected="cmbItem_lightTheme_Selected">Light</ComboBoxItem>
+                            </ComboBox>
+                            <Button x:Name="btn_minimize" Click="btn_minimize_Click" Style="{StaticResource MinimizeButton}">
+                                <Path Fill="{DynamicResource Text}" Data="{DynamicResource Minimize}" Stretch="Uniform" Width="10" Height="10"/>
+                            </Button>
+                            <Button x:Name="btn_maximize" Click="btn_maximize_Click" Style="{StaticResource MaximizeButton}">
+                                <Path Fill="{DynamicResource Text}" Data="{DynamicResource Maximize}" Stretch="Uniform" Width="10" Height="10"/>
+                            </Button>
+                            <Button x:Name="btn_close" Click="btn_close_Click" Style="{StaticResource CloseButton}">
+                                <Path Fill="{DynamicResource Text}" Data="{DynamicResource Close}" Stretch="Uniform" Width="10" Height="10"/>
+                            </Button>
+                        </DockPanel>
+                    </Grid>
+                </Border>
+                <!--#endregion-->
+
+                <!--#region BannerBorder -->
+                <Border Grid.Column="0" Grid.Row="1" Background="{DynamicResource Banner}">
+                    <TextBlock Foreground="{DynamicResource Text}" FontSize="25" VerticalAlignment="Center" Margin="50" Text="{DynamicResource txtBlk_route}" x:Name="txtBlk_route"/>
+                </Border>
+                <!--#endregion-->
+
+                <!--#region MainBorder -->
+                <Border Grid.Column="0" Grid.Row="2" Background="{DynamicResource Background}">
+                    <Frame x:Name="frm_main" NavigationUIVisibility="Hidden"/>
+                </Border>
+                <!--#endregion-->
+
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region MenuGrid -->
+            <Grid Grid.Column="0" Grid.Row="0" Background="{DynamicResource Banner}" x:Name="GridMenu">
+
+                <!--#region Grid-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <!--#endregion-->
+
+                <!--#region LogoHeader -->
+                <Border Grid.Column="0" Grid.Row="0" Background="{DynamicResource Banner}" MouseDown="WindowBorder">
+                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Path Fill="{DynamicResource Icon}" Data="{DynamicResource Logo}" Width="25" Height="25" Stretch="Fill"/>
+                        <TextBlock Margin="10,0,0,0" x:Name="txtBlk_applicationName" Text="Library" Foreground="{DynamicResource Text}" VerticalAlignment="Center" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </Border>
+                <!--#endregion-->
+
+                <!--#region AddBookBorder -->
+                <Border Grid.Column="0" Grid.Row="1" Style="{StaticResource AddBookBorder}">
+                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Path Fill="{DynamicResource Icon}" Data="{DynamicResource AddBook}" Width="100" Height="100" Stretch="Fill" x:Name="pth_addBook"/>
+                    </DockPanel>
+                </Border>
+                <!--#endregion-->
+
+                <!--#region MenuButtons-->
+                <Border Grid.Column="0" Grid.Row="2">
+                    <StackPanel>
+                        <ToggleButton Style="{StaticResource MenuButton}" x:Name="btn_books" Click="btn_books_Click">
+                            <DockPanel Width="175" Margin="18,0,0,0">
+                                <Path Fill="{DynamicResource Icon}" Data="{DynamicResource Books}" Width="35" Height="35" Stretch="Uniform"/>
+                                <TextBlock x:Name="txtBlk_books" Foreground="{DynamicResource Text}" FontSize="15" VerticalAlignment="Center" Margin="15,0,0,0" Text="{DynamicResource txtBlk_books}" TextWrapping="Wrap"/>
+                            </DockPanel>
+                        </ToggleButton>
+                        <ToggleButton Style="{StaticResource MenuButton}" x:Name="btn_readers" Click="btn_readers_Click">
+                            <DockPanel Width="175" Margin="18,0,0,0">
+                                <Path Fill="{DynamicResource Icon}" Data="{DynamicResource Readers}" Width="35" Height="35" Stretch="Uniform"/>
+                                <TextBlock x:Name="txtBlk_readers" Foreground="{DynamicResource Text}" FontSize="15" VerticalAlignment="Center" Margin="15,0,0,0" Text="{DynamicResource txtBlk_readers}" TextWrapping="Wrap"/>
+                            </DockPanel>
+                        </ToggleButton>
+                        <ToggleButton Style="{StaticResource MenuButton}" x:Name="btn_relics" Click="btn_relics_Click">
+                            <DockPanel Width="175" Margin="18,0,0,0">
+                                <Path Fill="{DynamicResource Icon}" Data="{DynamicResource Relics}" Width="35" Height="35" Stretch="Uniform"/>
+                                <TextBlock x:Name="txtBlk_relics" Foreground="{DynamicResource Text}" FontSize="15" VerticalAlignment="Center" Margin="15,0,0,0" Text="{DynamicResource txtBlk_relics}" TextWrapping="Wrap"/>
+                            </DockPanel>
+                        </ToggleButton>
+                        <ToggleButton Style="{StaticResource MenuButton}" x:Name="btn_expiredBooks" Click="btn_expiredBooks_Click">
+                            <DockPanel Width="175" Margin="18,0,0,0">
+                                <Path Fill="{DynamicResource Icon}" Data="{DynamicResource ExpiredBooks}" Width="35" Height="35" Stretch="Uniform"/>
+                                <TextBlock x:Name="txtBlk_expiredBooks"  Foreground="{DynamicResource Text}" FontSize="15" VerticalAlignment="Center" Margin="15,0,0,0" Text="{DynamicResource txtBlk_expiredBooks}" TextWrapping="Wrap"/>
+                            </DockPanel>
+                        </ToggleButton>
+                        <ToggleButton Style="{StaticResource MenuButton}" x:Name="btn_settings" Click="btn_settings_Click">
+                            <DockPanel Width="175" Margin="18,0,0,0">
+                                <Path Fill="{DynamicResource Icon}" Data="{DynamicResource Settings}" Width="35" Height="35" Stretch="Uniform"/>
+                                <TextBlock x:Name="txtBlk_settings" Foreground="{DynamicResource Text}" FontSize="15" VerticalAlignment="Center" Margin="15,0,0,0" Text="{DynamicResource txtBlk_settings}" TextWrapping="Wrap"/>
+                            </DockPanel>
+                        </ToggleButton>
+                        <ToggleButton Style="{StaticResource MenuButton}" x:Name="btn_about" Click="btn_about_Click">
+                            <DockPanel Width="175" Margin="18,0,0,0">
+                                <Path Fill="{DynamicResource Icon}" Data="{DynamicResource About}" Width="35" Height="35" Stretch="Uniform"/>
+                                <TextBlock x:Name="txtBlk_about" Foreground="{DynamicResource Text}" FontSize="15" VerticalAlignment="Center" Margin="15,0,0,0" Text="{DynamicResource txtBlk_about}" TextWrapping="Wrap"/>
+                            </DockPanel>
+                        </ToggleButton>
+                    </StackPanel>
+                </Border>
+                <!--#endregion-->
+
+                <!--#region VersionLabel-->
+                <DockPanel Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom" Margin="10">
+                    <Border Style="{StaticResource VersionBorder}" x:Name="brd_version">
+                        <Label Foreground="{DynamicResource Text}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">1.0.0.0</Label>
+                    </Border>
+                </DockPanel>
+                <!--#endregion-->
+                
+            </Grid >
+            <!--#endregion-->
+
+        </Grid>
+    </Border>
+</Window>

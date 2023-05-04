@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns:local="clr-namespace:IsLibrary" 
+             StartupUri="Views/ShellView.xaml" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    
+    <Application.Resources>
+        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Views/Styles/BorderButtonDictionary.xaml" />
+                <ResourceDictionary Source="Views/Styles/MenuButtonDictionary.xaml" />
+                <ResourceDictionary Source="Views/Styles/VersionBorderDictionary.xaml" />
+                <ResourceDictionary Source="Views/Styles/AddBookBorderDictionary.xaml" />
+                <ResourceDictionary Source="Views/Styles/ManagementButtonDictionary.xaml" />
+                <ResourceDictionary Source="Views/Styles/CollapsibleButtonDictionary.xaml" />
+                <ResourceDictionary Source="Views/Styles/TextBoxDictionary.xaml" />
+                <ResourceDictionary Source="Views/Styles/DatePickerDictionary.xaml" />
+                <ResourceDictionary Source="Views/Styles/DataGridDictionary.xaml" />
+
+                <ResourceDictionary Source="Views/Assets/Icons.xaml" />
+
+                <ResourceDictionary Source="Views/Themes/Dark.xaml" />
+
+                <ResourceDictionary Source="Views/Languages/StringResources.en-US.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+       
+    </Application.Resources>
+</Application>

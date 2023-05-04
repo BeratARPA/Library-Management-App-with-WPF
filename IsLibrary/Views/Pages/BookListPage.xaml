@@ -1,0 +1,50 @@
+﻿<Page x:Class="IsLibrary.Views.Pages.BookListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IsLibrary.Views"
+      xmlns:VM="clr-namespace:IsLibrary.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="BookListPage">
+    
+    <Page.DataContext>
+        <VM:BookListViewModel />
+    </Page.DataContext>
+    
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+
+            <DataGrid Grid.Row="0" Margin="15,15,15,0" ItemsSource="{Binding Books}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding BookId}"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>
+                    <DataGridTextColumn Header="Subject" Binding="{Binding Subject}"/>
+                    <DataGridTextColumn Header="PrintingPlace" Binding="{Binding PrintingPlace}"/>
+                    <DataGridTextColumn Header="PrintCount" Binding="{Binding PrintCount}"/>
+                    <DataGridTextColumn Header="PrintDate" Binding="{Binding PrintDate}"/>
+                    <DataGridTextColumn Header="SupplyCategory" Binding="{Binding SupplyCategory}"/>
+                    <DataGridTextColumn Header="SupplyDate" Binding="{Binding SupplyDate}"/>
+                    <DataGridTextColumn Header="PageCount" Binding="{Binding PageCount}"/>
+                    <DataGridTextColumn Header="Image" Binding="{Binding Image}"/>
+                    <DataGridTextColumn Header="Barcode" Binding="{Binding Barcode}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DockPanel Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,0">
+                <Button x:Name="btn_addBook" Click="btn_addBook_Click" Style="{StaticResource AddButton}" Content="{DynamicResource btn_add}"/>
+                <Button Style="{StaticResource UpdateButton}" Content="{DynamicResource btn_update}"/>
+                <Button Style="{StaticResource DeleteButton}" Content="{DynamicResource btn_delete}"/>
+            </DockPanel>
+
+        </Grid>
+        
+        <Frame x:Name="frm_main" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Page>

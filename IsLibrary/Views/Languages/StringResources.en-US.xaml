@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:IsLibrary" 
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="txtBlk_route">Main Page</system:String>
+    <system:String x:Key="txtBlk_books">Books</system:String>
+    <system:String x:Key="txtBlk_readers">Readers</system:String>
+    <system:String x:Key="txtBlk_relics">Relics</system:String>
+    <system:String x:Key="txtBlk_expiredBooks">Expired Books</system:String>
+    <system:String x:Key="txtBlk_settings">Settings</system:String>
+    <system:String x:Key="txtBlk_about">About</system:String>
+    <system:String x:Key="btn_add">Add</system:String>
+    <system:String x:Key="btn_update">Update</system:String>
+    <system:String x:Key="btn_delete">Delete</system:String>
+    <system:String x:Key="btn_cancel">Cancel</system:String>
+    <system:String x:Key="txtBlk_name">Name</system:String>
+    <system:String x:Key="txtBlk_category">Category</system:String>
+    <system:String x:Key="txtBlk_subject">Subject</system:String>
+    <system:String x:Key="txtBlk_printingPlace">Printing Place</system:String>
+    <system:String x:Key="txtBlk_printCount">Print Count</system:String>
+    <system:String x:Key="txtBlk_printDate">Print Date</system:String>
+    <system:String x:Key="txtBlk_supplyCategory">Supply Category</system:String>
+    <system:String x:Key="txtBlk_supplyDate">Supply Date</system:String>
+    <system:String x:Key="txtBlk_pageCount">Page Count</system:String>
+    <system:String x:Key="txtBlk_image">Image</system:String>
+    <system:String x:Key="txtBlk_barcode">Barcode</system:String>
+    <system:String x:Key="NameCannotEmpty">Name cannot empty!</system:String>
+    <system:String x:Key="CategoryCannotEmpty">Category cannot empty!</system:String>
+    <system:String x:Key="SubjectCannotEmpty">Subject cannot empty!</system:String>
+    <system:String x:Key="PrintingPlaceCannotEmpty">Printing place cannot empty!</system:String>
+    <system:String x:Key="PrintCountCannotEmpty">Print count cannot empty!</system:String>
+    <system:String x:Key="PrintDateCannotEmpty">Print date cannot empty!</system:String>
+    <system:String x:Key="SupplyCategoryCannotEmpty">Supply category cannot empty!</system:String>
+    <system:String x:Key="SupplyDateCannotEmpty">Supply date cannot empty!</system:String>
+    <system:String x:Key="PageCountCannotEmpty">Page count cannot empty!</system:String>
+    <system:String x:Key="ImageCannotEmpty">Image cannot empty!</system:String>
+    <system:String x:Key="BarcodeCannotEmpty">Barcode cannot empty!</system:String>
+
+</ResourceDictionary>

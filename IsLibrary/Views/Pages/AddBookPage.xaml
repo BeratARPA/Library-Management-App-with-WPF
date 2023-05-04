@@ -1,0 +1,95 @@
+﻿<Page x:Class="IsLibrary.Views.Pages.AddBookPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IsLibrary.Views"
+      xmlns:VM="clr-namespace:IsLibrary.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="AddBookPage">
+   
+    <Page.DataContext>
+        <VM:AddBookViewModel/>
+    </Page.DataContext>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Background="{DynamicResource Background}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0" Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.Column="0">
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock FontSize="15" Text="{DynamicResource txtBlk_name}" Foreground="{DynamicResource Text}"/>
+                        <TextBox Style="{StaticResource CustomTextBox}" HorizontalAlignment="Left" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock FontSize="15" Text="{DynamicResource txtBlk_category}" Foreground="{DynamicResource Text}"/>
+                        <TextBox Style="{StaticResource CustomTextBox}" HorizontalAlignment="Left" Text="{Binding Category, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock FontSize="15" Text="{DynamicResource txtBlk_subject}" Foreground="{DynamicResource Text}"/>
+                        <TextBox Style="{StaticResource CustomTextBox}" HorizontalAlignment="Left" Text="{Binding Subject, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock FontSize="15" Text="{DynamicResource txtBlk_printingPlace}" Foreground="{DynamicResource Text}"/>
+                        <TextBox Style="{StaticResource CustomTextBox}" HorizontalAlignment="Left" Text="{Binding PrintingPlace, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock FontSize="15" Text="{DynamicResource txtBlk_printCount}" Foreground="{DynamicResource Text}"/>
+                        <TextBox x:Name="txtBox_printCount" Style="{StaticResource CustomTextBox}" HorizontalAlignment="Left" PreviewTextInput="txtbox_printCount_PreviewTextInput" DataObject.Pasting="txtbox_printCount_Pasting" Text="{Binding PrintCount, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock FontSize="15" Text="{DynamicResource txtBlk_printDate}" Foreground="{DynamicResource Text}"/>
+                        <DatePicker Style="{StaticResource CustomDatePicker}" HorizontalAlignment="Left" Width="200" FontSize="15" Text="{Binding PrintDate, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="1">
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock FontSize="15" Text="{DynamicResource txtBlk_supplyCategory}" Foreground="{DynamicResource Text}"/>
+                        <TextBox Style="{StaticResource CustomTextBox}" HorizontalAlignment="Left" Text="{Binding SupplyCategory, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock FontSize="15" Text="{DynamicResource txtBlk_supplyDate}" Foreground="{DynamicResource Text}"/>
+                        <DatePicker Style="{StaticResource CustomDatePicker}" HorizontalAlignment="Left" Width="200" FontSize="15" Text="{Binding SupplyDate, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock FontSize="15" Text="{DynamicResource txtBlk_pageCount}" Foreground="{DynamicResource Text}"/>
+                        <TextBox x:Name="txtBox_pageCount" Style="{StaticResource CustomTextBox}" HorizontalAlignment="Left" PreviewTextInput="txtbox_pageCount_PreviewTextInput" DataObject.Pasting="txtbox_pageCount_Pasting" Text="{Binding PageCount, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock FontSize="15" Text="{DynamicResource txtBlk_image}" Foreground="{DynamicResource Text}"/>
+                        <TextBox Style="{StaticResource CustomTextBox}" HorizontalAlignment="Left" Text="{Binding Image, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock FontSize="15" Text="{DynamicResource txtBlk_barcode}" Foreground="{DynamicResource Text}"/>
+                        <TextBox Style="{StaticResource CustomTextBox}" HorizontalAlignment="Left" Text="{Binding Barcode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            
+            <Grid Grid.Row="1" Grid.Column="0">
+                <DockPanel HorizontalAlignment="Right">
+                    <Button Style="{StaticResource AddButton}" Content="{DynamicResource btn_add}" x:Name="btn_add" Click="btn_add_Click" Command="{Binding AddBookCommand}"/>
+                    <Button x:Name="btn_cancel" Click="btn_cancel_Click" Style="{StaticResource AddButton}" Content="{DynamicResource btn_cancel}" Margin="10"/>
+                </DockPanel>
+            </Grid>
+            
+            <Grid Grid.Row="2" Grid.Column="0" Margin="15,0,0,0">
+                <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+                    <Label Content="{Binding Error}" Foreground="Red" FontSize="15"/>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>
