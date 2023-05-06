@@ -1,23 +1,27 @@
 ﻿using Database.Classes.Repository;
 using Database.Models;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 
 namespace IsLibrary.ViewModels
 {
     public class BookListViewModel : ViewModelBase
     {
         GenericRepository<Book> _genericRepository = new GenericRepository<Book>();
-        public ObservableCollection<Book> Books { get; private set; }
-
+       
         public BookListViewModel()
         {
             Books = _genericRepository.GetAll();
         }
 
-        public async Task<ObservableCollection<Book>> FillBook()
+        private ObservableCollection<Book> _books;       
+        public ObservableCollection<Book> Books
         {
-            return await _genericRepository.GetAllAsync();
-        }
+            get { return _books; }
+            set
+            {
+                _books = value;
+                OnPropertyChanged(nameof(Books));
+            }
+        }        
     }
 }

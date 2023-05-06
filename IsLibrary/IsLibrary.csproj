@@ -82,16 +82,16 @@
     <Compile Include="ViewModels\AddBookViewModel.cs" />
     <Compile Include="ViewModels\BookListViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
-    <Compile Include="Views\Pages\AddBookPage.xaml.cs">
+    <Compile Include="Views\AddBookPage.xaml.cs">
       <DependentUpon>AddBookPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\BookListPage.xaml.cs">
+    <Compile Include="Views\BookListPage.xaml.cs">
       <DependentUpon>BookListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\Pages\AddBookPage.xaml">
+    <Page Include="Views\AddBookPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -105,7 +105,7 @@
     </Compile>
     <Compile Include="Helpers\AppTheme.cs" />
     <Compile Include="Helpers\GetUserControlInGrid.cs" />
-    <Page Include="Views\Pages\BookListPage.xaml">
+    <Page Include="Views\BookListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Styles\MenuButtonDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Styles\ScrollBarDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

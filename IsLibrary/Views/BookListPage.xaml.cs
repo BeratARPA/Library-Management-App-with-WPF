@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace IsLibrary.Views.Pages
+namespace IsLibrary.Views
 {
     /// <summary>
     /// Interaction logic for BookListPage.xaml

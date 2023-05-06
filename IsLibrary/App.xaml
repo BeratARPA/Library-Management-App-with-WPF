@@ -16,6 +16,7 @@
                 <ResourceDictionary Source="Views/Styles/TextBoxDictionary.xaml" />
                 <ResourceDictionary Source="Views/Styles/DatePickerDictionary.xaml" />
                 <ResourceDictionary Source="Views/Styles/DataGridDictionary.xaml" />
+                <ResourceDictionary Source="Views/Styles/ScrollBarDictionary.xaml" />
 
                 <ResourceDictionary Source="Views/Assets/Icons.xaml" />
 

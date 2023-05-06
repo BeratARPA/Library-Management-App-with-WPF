@@ -3,20 +3,17 @@ using Database.Models;
 using IsLibrary.Commands;
 using IsLibrary.ValidationRules;
 using System;
-using System.Linq;
 
 namespace IsLibrary.ViewModels
 {
     public class AddBookViewModel : ViewModelBase
     {
         GenericRepository<Book> _genericRepository = new GenericRepository<Book>();
-        private readonly AddBookValidation _addBookValidation;
         public RelayCommand AddBookCommand { get; private set; }
 
         public AddBookViewModel()
         {
-            _addBookValidation = new AddBookValidation();
-            AddBookCommand = new RelayCommand(x => AddBook(), x => Validate());
+            AddBookCommand = new RelayCommand(x => AddBook(), x => Validate(new AddBookValidation(), this));
         }
 
         public void AddBook()
@@ -40,41 +37,6 @@ namespace IsLibrary.ViewModels
             };
 
             _genericRepository.Add(book);
-        }
-
-        public string this[string columnName]
-        {
-            get
-            {
-                var firstOrDefault = _addBookValidation.Validate(this).Errors.FirstOrDefault(lol => lol.PropertyName == columnName);
-                if (firstOrDefault != null)
-                    return _addBookValidation != null ? firstOrDefault.ErrorMessage : "";
-                return "";
-            }
-        }
-
-        public bool Validate()
-        {
-            var validator = _addBookValidation.Validate(this);
-            if (!validator.IsValid)
-            {
-                Error = string.Join(Environment.NewLine, validator.Errors.Select(x => x.ErrorMessage));
-                return false;
-            }
-
-            Error = "";
-            return true;
-        }
-
-        private string _error;
-        public string Error
-        {
-            get { return _error; }
-            set
-            {
-                _error = value;
-                OnPropertyChanged(nameof(Error));
-            }
         }
 
         private string _name;

@@ -1,6 +1,4 @@
 ﻿using IsLibrary.Helpers;
-using IsLibrary.ViewModels;
-using IsLibrary.Views.Pages;
 using System;
 using System.Runtime.InteropServices;
 using System.Windows;
@@ -126,7 +124,7 @@ namespace IsLibrary.Views
         #region Menu
         private void btn_books_Click(object sender, RoutedEventArgs e)
         {
-            selectedMenu(0);
+            SelectedMenu(0);
 
             txtBlk_route.Text = txtBlk_books.Text;
 
@@ -135,40 +133,40 @@ namespace IsLibrary.Views
 
         private void btn_readers_Click(object sender, RoutedEventArgs e)
         {
-            selectedMenu(1);
+            SelectedMenu(1);
 
             txtBlk_route.Text = txtBlk_readers.Text;
         }
 
         private void btn_relics_Click(object sender, RoutedEventArgs e)
         {
-            selectedMenu(2);
+            SelectedMenu(2);
 
             txtBlk_route.Text = txtBlk_relics.Text;
         }
 
         private void btn_expiredBooks_Click(object sender, RoutedEventArgs e)
         {
-            selectedMenu(3);
+            SelectedMenu(3);
 
             txtBlk_route.Text = txtBlk_expiredBooks.Text;
         }
 
         private void btn_settings_Click(object sender, RoutedEventArgs e)
         {
-            selectedMenu(4);
+            SelectedMenu(4);
 
             txtBlk_route.Text = txtBlk_settings.Text;
         }
 
         private void btn_about_Click(object sender, RoutedEventArgs e)
         {
-            selectedMenu(5);
+            SelectedMenu(5);
 
             txtBlk_route.Text = txtBlk_about.Text;
         }
 
-        public void selectedMenu(int index)
+        public void SelectedMenu(int index)
         {
             btn_books.IsChecked = false;
             btn_readers.IsChecked = false;

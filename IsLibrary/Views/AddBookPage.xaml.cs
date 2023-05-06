@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace IsLibrary.Views.Pages
+namespace IsLibrary.Views
 {
     /// <summary>
     /// Interaction logic for AddBookPage.xaml

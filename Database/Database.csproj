@@ -89,9 +89,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\Concrete\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202304260052077_Initial.resx">
       <DependentUpon>202304260052077_Initial.cs</DependentUpon>
