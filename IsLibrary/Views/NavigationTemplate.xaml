@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:IsLibrary"
+                    xmlns:viewmodel="clr-namespace:IsLibrary.ViewModels"
+                    xmlns:view="clr-namespace:IsLibrary.Views">
+
+    <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
+        <view:HomeUserControl/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodel:AddBookViewModel}">
+        <view:AddBookUserControl/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodel:BookListViewModel}">
+        <view:BookListUserControl/>
+    </DataTemplate>
+
+</ResourceDictionary>

@@ -14,6 +14,8 @@ namespace IsLibrary.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public virtual void Dispose() { }
+
         public bool Validate<T>(AbstractValidator<T> validationRules, T model)
         {
             var validator = validationRules.Validate(model);

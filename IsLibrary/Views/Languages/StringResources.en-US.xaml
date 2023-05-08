@@ -35,5 +35,16 @@
     <system:String x:Key="PageCountCannotEmpty">Page count cannot empty!</system:String>
     <system:String x:Key="ImageCannotEmpty">Image cannot empty!</system:String>
     <system:String x:Key="BarcodeCannotEmpty">Barcode cannot empty!</system:String>
+    <system:String x:Key="Name">Name</system:String>
+    <system:String x:Key="Category">Category</system:String>
+    <system:String x:Key="Subject">Subject</system:String>
+    <system:String x:Key="PrintingPlace">Printing Place</system:String>
+    <system:String x:Key="PrintCount">Print Count</system:String>
+    <system:String x:Key="PrintDate">Print Date</system:String>
+    <system:String x:Key="SupplyCategory">Supply Category</system:String>
+    <system:String x:Key="SupplyDate">Supply Date</system:String>
+    <system:String x:Key="PageCount">Page Count</system:String>
+    <system:String x:Key="Image">Image</system:String>
+    <system:String x:Key="Barcode">Barcode</system:String>
 
 </ResourceDictionary>

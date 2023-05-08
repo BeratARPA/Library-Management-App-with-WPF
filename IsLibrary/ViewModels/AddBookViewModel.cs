@@ -1,8 +1,10 @@
 ﻿using Database.Classes.Repository;
 using Database.Models;
 using IsLibrary.Commands;
+using IsLibrary.Services;
 using IsLibrary.ValidationRules;
 using System;
+using System.Windows.Input;
 
 namespace IsLibrary.ViewModels
 {
@@ -11,9 +13,24 @@ namespace IsLibrary.ViewModels
         GenericRepository<Book> _genericRepository = new GenericRepository<Book>();
         public RelayCommand AddBookCommand { get; private set; }
 
-        public AddBookViewModel()
+        private INavigationService _navigationService;
+        public INavigationService NavigationService
         {
+            get => _navigationService;
+            set
+            {
+                _navigationService = value;
+                OnPropertyChanged(nameof(NavigationService));
+            }
+        }
+
+        public RelayCommand NavigateToBooksCommand { get; set; }
+
+        public AddBookViewModel(INavigationService navigationService)
+        {
+            _navigationService = navigationService;
             AddBookCommand = new RelayCommand(x => AddBook(), x => Validate(new AddBookValidation(), this));
+            NavigateToBooksCommand = new RelayCommand(x => _navigationService.NavigateTo<BookListViewModel>());
         }
 
         public void AddBook()
@@ -37,6 +54,7 @@ namespace IsLibrary.ViewModels
             };
 
             _genericRepository.Add(book);
+            _navigationService.NavigateTo<BookListViewModel>();
         }
 
         private string _name;

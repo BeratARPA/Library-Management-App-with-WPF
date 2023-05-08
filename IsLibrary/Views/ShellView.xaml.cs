@@ -127,8 +127,6 @@ namespace IsLibrary.Views
             SelectedMenu(0);
 
             txtBlk_route.Text = txtBlk_books.Text;
-
-            frm_main.Content = new BookListPage();
         }
 
         private void btn_readers_Click(object sender, RoutedEventArgs e)

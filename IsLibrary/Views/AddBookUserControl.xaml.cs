@@ -1,4 +1,5 @@
 ﻿using IsLibrary.Helpers;
+using IsLibrary.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -6,11 +7,11 @@ using System.Windows.Input;
 namespace IsLibrary.Views
 {
     /// <summary>
-    /// Interaction logic for AddBookPage.xaml
+    /// Interaction logic for AddBookUserControl.xaml
     /// </summary>
-    public partial class AddBookPage : Page
+    public partial class AddBookUserControl : UserControl
     {
-        public AddBookPage()
+        public AddBookUserControl()
         {
             InitializeComponent();
         }
@@ -33,16 +34,6 @@ namespace IsLibrary.Views
         private void txtbox_pageCount_Pasting(object sender, DataObjectPastingEventArgs e)
         {
             RegexHelpers.TextPasteNotAllowed(e);
-        }
-
-        private void btn_cancel_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new BookListPage());
-        }
-
-        private void btn_add_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new BookListPage());
         }
     }
 }

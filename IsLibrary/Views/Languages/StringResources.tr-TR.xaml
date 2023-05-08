@@ -35,5 +35,16 @@
     <system:String x:Key="PageCountCannotEmpty">Sayfa sayısı boş bırakılamaz!</system:String>
     <system:String x:Key="ImageCannotEmpty">Görsel boş bırakılamaz!</system:String>
     <system:String x:Key="BarcodeCannotEmpty">Barkod boş bırakılamaz!</system:String>
+    <system:String x:Key="Name">Ad</system:String>
+    <system:String x:Key="Category">Kategori</system:String>
+    <system:String x:Key="Subject">Konu</system:String>
+    <system:String x:Key="PrintingPlace">Basım Yeri</system:String>
+    <system:String x:Key="PrintCount">Basım Sayısı</system:String>
+    <system:String x:Key="PrintDate">Basım Tarihi</system:String>
+    <system:String x:Key="SupplyCategory">Tedarik Kategorisi</system:String>
+    <system:String x:Key="SupplyDate">Tedarik Tarihi</system:String>
+    <system:String x:Key="PageCount">Sayfa Sayısı</system:String>
+    <system:String x:Key="Image">Görsel</system:String>
+    <system:String x:Key="Barcode">Barkod</system:String>
     
 </ResourceDictionary> 

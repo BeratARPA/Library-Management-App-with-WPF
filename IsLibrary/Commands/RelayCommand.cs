@@ -14,6 +14,11 @@ namespace IsLibrary.Commands
             _canExecute = canExecute;
         }
 
+        public RelayCommand(Action<object> execute)
+        {
+            _execute = execute;
+        }
+
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
