@@ -17,6 +17,7 @@ namespace IsLibrary.ViewModels
         }
 
         public RelayCommand NavigateToBooksCommand { get; set; }
+        public RelayCommand NavigateToAddBookCommand { get; set; }        
         public RelayCommand NavigateToReadersCommand { get; set; }
         public RelayCommand NavigateToRelicsCommand { get; set; }
         public RelayCommand NavigateToExpiredBooksCommand { get; set; }
@@ -28,6 +29,7 @@ namespace IsLibrary.ViewModels
             _navigationService = navigationService;
             _navigationService.NavigateTo<HomeViewModel>();
             NavigateToBooksCommand = new RelayCommand(x => _navigationService.NavigateTo<BookListViewModel>());
+            NavigateToAddBookCommand = new RelayCommand(x => _navigationService.NavigateTo<AddBookViewModel>());
         }
     }
 }

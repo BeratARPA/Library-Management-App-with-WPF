@@ -13,7 +13,7 @@
                 <RowDefinition Height="70"/>
             </Grid.RowDefinitions>
 
-            <DataGrid Grid.Row="0" Margin="15" ItemsSource="{Binding Books, UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid Grid.Row="0" Margin="15" ItemsSource="{Binding Books}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding BookId}"/>
                     <DataGridTextColumn Header="{DynamicResource Name}" Binding="{Binding Name}"/>

@@ -33,6 +33,21 @@ namespace IsLibrary.ViewModels
             NavigateToBooksCommand = new RelayCommand(x => _navigationService.NavigateTo<BookListViewModel>());
         }
 
+        public void Clear()
+        {
+            Name = string.Empty;
+            Category = string.Empty;
+            Subject = string.Empty;
+            PrintingPlace = string.Empty;
+            PrintCount = 0;
+            PrintDate = DateTime.Now;
+            SupplyCategory = string.Empty;
+            SupplyDate = DateTime.Now;
+            PageCount = 0;
+            Image = string.Empty;
+            Barcode = string.Empty;
+        }
+
         public void AddBook()
         {
             Book book = new Book
@@ -54,6 +69,7 @@ namespace IsLibrary.ViewModels
             };
 
             _genericRepository.Add(book);
+            //Clear();
             _navigationService.NavigateTo<BookListViewModel>();
         }
 

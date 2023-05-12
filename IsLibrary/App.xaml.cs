@@ -18,19 +18,18 @@ namespace IsLibrary
         {
             IServiceCollection services = new ServiceCollection();
 
-            services.AddTransient<ShellViewModel>();
-            services.AddSingleton<ShellView>(provider => new ShellView
+            services.AddScoped<ShellViewModel>();
+            services.AddScoped<ShellView>(provider => new ShellView
             {
                 DataContext = provider.GetRequiredService<ShellViewModel>()
             });
 
-            services.AddSingleton<HomeViewModel>();
-            services.AddSingleton<BookListViewModel>();
-            services.AddSingleton<AddBookViewModel>();
-            services.AddSingleton<HomeViewModel>();
-            services.AddSingleton<INavigationService, Services.NavigationService>();
+            services.AddScoped<HomeViewModel>();
+            services.AddScoped<BookListViewModel>();
+            services.AddScoped<AddBookViewModel>();
+            services.AddScoped<INavigationService, Services.NavigationService>();
 
-            services.AddSingleton<Func<Type, ViewModelBase>>(serviceProvider => viewModelType => (ViewModelBase)serviceProvider.GetRequiredService(viewModelType));
+            services.AddScoped<Func<Type, ViewModelBase>>(serviceProvider => viewModelType => (ViewModelBase)serviceProvider.GetRequiredService(viewModelType));
 
             _serviceProvider = services.BuildServiceProvider();
         }

@@ -110,9 +110,11 @@
 
                 <!--#region AddBookBorder -->
                 <Border Grid.Column="0" Grid.Row="1" Style="{StaticResource AddBookBorder}">
-                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Path Fill="{DynamicResource Icon}" Data="{DynamicResource AddBook}" Width="100" Height="100" Stretch="Fill" x:Name="pth_addBook"/>
-                    </DockPanel>
+                    <Button Background="Transparent" Command="{Binding NavigateToAddBookCommand}">
+                        <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Path Fill="{DynamicResource Icon}" Data="{DynamicResource AddBook}" Width="100" Height="100" Stretch="Fill" x:Name="pth_addBook"/>
+                        </DockPanel>
+                    </Button>
                 </Border>
                 <!--#endregion-->
 

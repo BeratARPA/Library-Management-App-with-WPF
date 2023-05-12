@@ -11,7 +11,6 @@ namespace IsLibrary.ViewModels
         GenericRepository<Book> _genericRepository = new GenericRepository<Book>();
 
         private ObservableCollection<Book> _books;
-
         public ObservableCollection<Book> Books
         {
             get { return _books; }
@@ -21,7 +20,6 @@ namespace IsLibrary.ViewModels
                 OnPropertyChanged(nameof(Books));
             }
         }
-
 
         private INavigationService _navigationService;
         public INavigationService NavigationService
