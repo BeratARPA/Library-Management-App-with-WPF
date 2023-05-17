@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace IsLibrary.ViewModels
 {
-    public class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -25,7 +25,7 @@ namespace IsLibrary.ViewModels
                 return false;
             }
 
-            Error = "";
+            Error = null;
             return true;
         }
 

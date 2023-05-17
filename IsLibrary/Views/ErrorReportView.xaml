@@ -1,0 +1,54 @@
+﻿<Window x:Class="IsLibrary.Views.ErrorReportView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IsLibrary.Views"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"        
+        Title="ErrorReportView" Height="400" Width="550">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <TabControl Margin="5" Grid.Row="0">
+            <TabItem Header="{DynamicResource ErrorMessage}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Margin="5" Grid.Column="0" Grid.Row="0" Source="Assets/warning.png"/>
+
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding ErrorMessage}" Margin="5" TextWrapping="Wrap" FontSize="15"/>
+
+                    <Border Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Silver" BorderThickness="0,1,0,0">
+                        <TextBlock Text="{DynamicResource PleaseEnterABriefExplanationOfEventLeadingUpToThisException}" FontSize="15"/>
+                    </Border>
+
+                    <TextBox Grid.Row="2" Grid.ColumnSpan="2" Background="LightGray" Margin="5" AcceptsTab="True" AcceptsReturn="True" FontSize="15" Text="{Binding UserMessage}"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{DynamicResource DetailedReport}">
+
+            </TabItem>
+        </TabControl>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Height="35">
+            <Button Margin="2" Width="80" Content="Copy"/>
+            <Button Margin="2" Width="80" Content="Save"/>
+            <Button Margin="2" Width="80" Content="Submit"/>
+            <Button Margin="2" Width="80" Content="Close" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

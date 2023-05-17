@@ -2,25 +2,46 @@
 using Database.Models;
 using IsLibrary.Commands;
 using IsLibrary.Services;
+using System;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace IsLibrary.ViewModels
 {
     public class BookListViewModel : ViewModelBase
     {
         GenericRepository<Book> _genericRepository = new GenericRepository<Book>();
+        public RelayCommand DeleteBookCommand { get; private set; }
 
-        private ObservableCollection<Book> _books;
-        public ObservableCollection<Book> Books
+        public BookListViewModel(INavigationService navigationService)
         {
-            get { return _books; }
-            set
-            {
-                _books = value;
-                OnPropertyChanged(nameof(Books));
-            }
+            _navigationService = navigationService;
+            NavigateToAddBookCommand = new RelayCommand(x => AddBook());
+            DeleteBookCommand = new RelayCommand(DeleteBook);
+            Books = _genericRepository.GetAll();
         }
 
+        public void AddBook()
+        {
+            _navigationService.NavigateTo<AddBookViewModel>();
+            Error = null;
+        }
+ 
+        public void DeleteBook(object parameter)
+        {
+            if (parameter is null)
+            {
+                ResourceDictionary language = new ResourceDictionary { Source = new Uri(Properties.Settings.Default.Language, UriKind.Relative) };
+                Error = language["SelectTheDataYouWantToDelete"].ToString();
+                return;
+            }
+
+            Book book = (Book)parameter;
+            _genericRepository.Delete(_genericRepository.GetById(book.BookId));
+            Books.Remove(book);
+        }
+
+        public RelayCommand NavigateToAddBookCommand { get; set; }
         private INavigationService _navigationService;
         public INavigationService NavigationService
         {
@@ -32,13 +53,15 @@ namespace IsLibrary.ViewModels
             }
         }
 
-        public RelayCommand NavigateToAddBookCommand { get; set; }
-
-        public BookListViewModel(INavigationService navigationService)
+        private ObservableCollection<Book> _books;
+        public ObservableCollection<Book> Books
         {
-            _navigationService = navigationService;
-            NavigateToAddBookCommand = new RelayCommand(x => _navigationService.NavigateTo<AddBookViewModel>());
-            Books = _genericRepository.GetAll();
+            get { return _books; }
+            set
+            {
+                _books = value;
+                OnPropertyChanged(nameof(Books));
+            }
         }
     }
 }

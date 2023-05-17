@@ -85,6 +85,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Helpers\AppLanguage.cs" />
+    <Compile Include="Helpers\ExceptionReporter.cs" />
     <Compile Include="Helpers\RegexHelpers.cs" />
     <Compile Include="Converters\StringToBoolConverter.cs" />
     <Compile Include="Services\INavigationService.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="ValidationRules\AddBookValidation.cs" />
     <Compile Include="ViewModels\AddBookViewModel.cs" />
     <Compile Include="ViewModels\BookListViewModel.cs" />
+    <Compile Include="ViewModels\ErrorReportViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -100,6 +102,9 @@
     </Compile>
     <Compile Include="Views\BookListUserControl.xaml.cs">
       <DependentUpon>BookListUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ErrorReportView.xaml.cs">
+      <DependentUpon>ErrorReportView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomeUserControl.xaml.cs">
       <DependentUpon>HomeUserControl.xaml</DependentUpon>
@@ -125,6 +130,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ErrorReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\HomeUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -145,7 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Styles\AddBookBorderDictionary.xaml">
+    <Page Include="Views\Styles\AddBookButtonDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -233,6 +242,9 @@
       <Project>{5f2bf32a-f7be-4f50-85de-d4cb3c79f38d}</Project>
       <Name>Database</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Assets\warning.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

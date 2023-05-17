@@ -3,7 +3,7 @@
 
     <Style TargetType="Border" x:Key="VersionBorder">
         <Setter Property="Background" Value="{DynamicResource Background}"/>
-        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="CornerRadius" Value="5"/>
         <Setter Property="Width" Value="80"/>
         <Setter Property="Height" Value="25"/>
 

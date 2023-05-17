@@ -1,4 +1,5 @@
-﻿using IsLibrary.Services;
+﻿using IsLibrary.Helpers;
+using IsLibrary.Services;
 using IsLibrary.ViewModels;
 using IsLibrary.Views;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,27 +19,49 @@ namespace IsLibrary
         {
             IServiceCollection services = new ServiceCollection();
 
-            services.AddScoped<ShellViewModel>();
-            services.AddScoped<ShellView>(provider => new ShellView
+            services.AddSingleton<ShellViewModel>();
+            services.AddSingleton<ShellView>(provider => new ShellView
             {
                 DataContext = provider.GetRequiredService<ShellViewModel>()
             });
 
-            services.AddScoped<HomeViewModel>();
-            services.AddScoped<BookListViewModel>();
-            services.AddScoped<AddBookViewModel>();
-            services.AddScoped<INavigationService, Services.NavigationService>();
+            services.AddSingleton<HomeViewModel>();
+            services.AddSingleton<BookListViewModel>();
+            services.AddSingleton<AddBookViewModel>();
+            services.AddSingleton<INavigationService, Services.NavigationService>();
 
-            services.AddScoped<Func<Type, ViewModelBase>>(serviceProvider => viewModelType => (ViewModelBase)serviceProvider.GetRequiredService(viewModelType));
+            services.AddSingleton<Func<Type, ViewModelBase>>(serviceProvider => viewModelType => (ViewModelBase)serviceProvider.GetRequiredService(viewModelType));
 
             _serviceProvider = services.BuildServiceProvider();
         }
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            var shellView = _serviceProvider.GetRequiredService<ShellView>();
-            shellView.Show();
+            AppDomain.CurrentDomain.UnhandledException += AppDomainUnhandledException;
+
+            try
+            {
+                var shellView = _serviceProvider.GetRequiredService<ShellView>();
+                shellView.Show();
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+
             base.OnStartup(e);
+        }
+
+        private static void AppDomainUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            HandleException(e.ExceptionObject as Exception);
+        }
+
+        private static void HandleException(Exception ex)
+        {
+            if (ex == null) return;
+            ExceptionReporter.Show(ex);
+            Environment.Exit(1);
         }
     }
 }

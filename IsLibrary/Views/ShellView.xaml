@@ -9,7 +9,7 @@
         ResizeMode="CanResizeWithGrip"
         AllowsTransparency="True"
         Background="Transparent"
-        Title="ShellView" Height="600" Width="800" MinHeight="600" MinWidth="800">
+        Title="ShellView" Height="600" Width="800" MinHeight="600" MinWidth="800" Loaded="Window_Loaded">
 
     <Border CornerRadius="5" BorderThickness="7" BorderBrush="{DynamicResource Banner}">
         <Grid>
@@ -109,49 +109,49 @@
                 <!--#endregion-->
 
                 <!--#region AddBookBorder -->
-                <Border Grid.Column="0" Grid.Row="1" Style="{StaticResource AddBookBorder}">
-                    <Button Background="Transparent" Command="{Binding NavigateToAddBookCommand}">
+
+                <Button Background="Transparent" Command="{Binding NavigateToAddBookCommand}" Grid.Column="0" Grid.Row="1" Style="{StaticResource AddBookButton}">
                         <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                             <Path Fill="{DynamicResource Icon}" Data="{DynamicResource AddBook}" Width="100" Height="100" Stretch="Fill" x:Name="pth_addBook"/>
                         </DockPanel>
                     </Button>
-                </Border>
+                
                 <!--#endregion-->
 
                 <!--#region MenuButtons-->
                 <Border Grid.Column="0" Grid.Row="2">
                     <StackPanel>
-                        <ToggleButton Style="{StaticResource MenuButton}" x:Name="btn_books" Click="btn_books_Click" Command="{Binding NavigateToBooksCommand}">
+                        <ToggleButton Margin="0,0,0,2" Style="{StaticResource MenuButton}" x:Name="btn_books" Click="btn_books_Click" Command="{Binding NavigateToBooksCommand}">
                             <DockPanel Width="175" Margin="18,0,0,0">
                                 <Path Fill="{DynamicResource Icon}" Data="{DynamicResource Books}" Width="35" Height="35" Stretch="Uniform"/>
                                 <TextBlock x:Name="txtBlk_books" Foreground="{DynamicResource Text}" FontSize="15" VerticalAlignment="Center" Margin="15,0,0,0" Text="{DynamicResource txtBlk_books}" TextWrapping="Wrap"/>
                             </DockPanel>
                         </ToggleButton>
-                        <ToggleButton Style="{StaticResource MenuButton}" x:Name="btn_readers" Click="btn_readers_Click" Command="{Binding NavigateToReadersCommand}" CommandParameter="Readers">
+                        <ToggleButton Margin="0,0,0,2" Style="{StaticResource MenuButton}" x:Name="btn_readers" Click="btn_readers_Click" Command="{Binding NavigateToReadersCommand}" CommandParameter="Readers">
                             <DockPanel Width="175" Margin="18,0,0,0">
                                 <Path Fill="{DynamicResource Icon}" Data="{DynamicResource Readers}" Width="35" Height="35" Stretch="Uniform"/>
                                 <TextBlock x:Name="txtBlk_readers" Foreground="{DynamicResource Text}" FontSize="15" VerticalAlignment="Center" Margin="15,0,0,0" Text="{DynamicResource txtBlk_readers}" TextWrapping="Wrap"/>
                             </DockPanel>
                         </ToggleButton>
-                        <ToggleButton Style="{StaticResource MenuButton}" x:Name="btn_relics" Click="btn_relics_Click" Command="{Binding NavigateToRelicsCommand}" CommandParameter="Relics">
+                        <ToggleButton Margin="0,0,0,2" Style="{StaticResource MenuButton}" x:Name="btn_relics" Click="btn_relics_Click" Command="{Binding NavigateToRelicsCommand}" CommandParameter="Relics">
                             <DockPanel Width="175" Margin="18,0,0,0">
                                 <Path Fill="{DynamicResource Icon}" Data="{DynamicResource Relics}" Width="35" Height="35" Stretch="Uniform"/>
                                 <TextBlock x:Name="txtBlk_relics" Foreground="{DynamicResource Text}" FontSize="15" VerticalAlignment="Center" Margin="15,0,0,0" Text="{DynamicResource txtBlk_relics}" TextWrapping="Wrap"/>
                             </DockPanel>
                         </ToggleButton>
-                        <ToggleButton Style="{StaticResource MenuButton}" x:Name="btn_expiredBooks" Click="btn_expiredBooks_Click" Command="{Binding NavigateToExpiredBooksCommand}" CommandParameter="ExpiredBooks">
+                        <ToggleButton Margin="0,0,0,2" Style="{StaticResource MenuButton}" x:Name="btn_expiredBooks" Click="btn_expiredBooks_Click" Command="{Binding NavigateToExpiredBooksCommand}" CommandParameter="ExpiredBooks">
                             <DockPanel Width="175" Margin="18,0,0,0">
                                 <Path Fill="{DynamicResource Icon}" Data="{DynamicResource ExpiredBooks}" Width="35" Height="35" Stretch="Uniform"/>
                                 <TextBlock x:Name="txtBlk_expiredBooks"  Foreground="{DynamicResource Text}" FontSize="15" VerticalAlignment="Center" Margin="15,0,0,0" Text="{DynamicResource txtBlk_expiredBooks}" TextWrapping="Wrap"/>
                             </DockPanel>
                         </ToggleButton>
-                        <ToggleButton Style="{StaticResource MenuButton}" x:Name="btn_settings" Click="btn_settings_Click" Command="{Binding NavigateToSettingsCommand}" CommandParameter="Settings">
+                        <ToggleButton Margin="0,0,0,2" Style="{StaticResource MenuButton}" x:Name="btn_settings" Click="btn_settings_Click" Command="{Binding NavigateToSettingsCommand}" CommandParameter="Settings">
                             <DockPanel Width="175" Margin="18,0,0,0">
                                 <Path Fill="{DynamicResource Icon}" Data="{DynamicResource Settings}" Width="35" Height="35" Stretch="Uniform"/>
                                 <TextBlock x:Name="txtBlk_settings" Foreground="{DynamicResource Text}" FontSize="15" VerticalAlignment="Center" Margin="15,0,0,0" Text="{DynamicResource txtBlk_settings}" TextWrapping="Wrap"/>
                             </DockPanel>
                         </ToggleButton>
-                        <ToggleButton Style="{StaticResource MenuButton}" x:Name="btn_about" Click="btn_about_Click" Command="{Binding NavigateToAboutCommand}" CommandParameter="About">
+                        <ToggleButton Margin="0,0,0,2" Style="{StaticResource MenuButton}" x:Name="btn_about" Click="btn_about_Click" Command="{Binding NavigateToAboutCommand}" CommandParameter="About">
                             <DockPanel Width="175" Margin="18,0,0,0">
                                 <Path Fill="{DynamicResource Icon}" Data="{DynamicResource About}" Width="35" Height="35" Stretch="Uniform"/>
                                 <TextBlock x:Name="txtBlk_about" Foreground="{DynamicResource Text}" FontSize="15" VerticalAlignment="Center" Margin="15,0,0,0" Text="{DynamicResource txtBlk_about}" TextWrapping="Wrap"/>

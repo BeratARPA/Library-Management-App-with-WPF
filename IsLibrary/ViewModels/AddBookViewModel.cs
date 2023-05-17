@@ -4,7 +4,6 @@ using IsLibrary.Commands;
 using IsLibrary.Services;
 using IsLibrary.ValidationRules;
 using System;
-using System.Windows.Input;
 
 namespace IsLibrary.ViewModels
 {
@@ -12,7 +11,17 @@ namespace IsLibrary.ViewModels
     {
         GenericRepository<Book> _genericRepository = new GenericRepository<Book>();
         public RelayCommand AddBookCommand { get; private set; }
+        private BookListViewModel _bookListViewModel;
 
+        public AddBookViewModel(INavigationService navigationService, BookListViewModel bookListViewModel)
+        {
+            _navigationService = navigationService;
+            _bookListViewModel = bookListViewModel;
+            AddBookCommand = new RelayCommand(x => AddBook(), x => Validate(new AddBookValidation(), this));
+            NavigateToBooksCommand = new RelayCommand(x => _navigationService.NavigateTo<BookListViewModel>());
+        }
+
+        public RelayCommand NavigateToBooksCommand { get; private set; }
         private INavigationService _navigationService;
         public INavigationService NavigationService
         {
@@ -22,15 +31,6 @@ namespace IsLibrary.ViewModels
                 _navigationService = value;
                 OnPropertyChanged(nameof(NavigationService));
             }
-        }
-
-        public RelayCommand NavigateToBooksCommand { get; set; }
-
-        public AddBookViewModel(INavigationService navigationService)
-        {
-            _navigationService = navigationService;
-            AddBookCommand = new RelayCommand(x => AddBook(), x => Validate(new AddBookValidation(), this));
-            NavigateToBooksCommand = new RelayCommand(x => _navigationService.NavigateTo<BookListViewModel>());
         }
 
         public void Clear()
@@ -69,7 +69,9 @@ namespace IsLibrary.ViewModels
             };
 
             _genericRepository.Add(book);
-            //Clear();
+            _bookListViewModel.Books.Add(book);
+            Clear();
+
             _navigationService.NavigateTo<BookListViewModel>();
         }
 

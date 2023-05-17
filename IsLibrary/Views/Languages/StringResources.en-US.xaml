@@ -46,5 +46,9 @@
     <system:String x:Key="PageCount">Page Count</system:String>
     <system:String x:Key="Image">Image</system:String>
     <system:String x:Key="Barcode">Barcode</system:String>
+    <system:String x:Key="SelectTheDataYouWantToDelete">Select the data you want to delete.</system:String>
+    <system:String x:Key="ErrorMessage">Error Message</system:String>
+    <system:String x:Key="DetailedReport">Detailed Report</system:String>
+    <system:String x:Key="PleaseEnterABriefExplanationOfEventLeadingUpToThisException">Please enter a brief explanation of event leading up to this exception:</system:String>
 
 </ResourceDictionary>

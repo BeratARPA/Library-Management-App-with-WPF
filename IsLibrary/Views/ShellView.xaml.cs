@@ -198,5 +198,10 @@ namespace IsLibrary.Views
             }
         }
         #endregion
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            throw new Exception();
+        }
     }
 }
